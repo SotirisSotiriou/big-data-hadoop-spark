@@ -24,16 +24,16 @@ public class LogsMR {
             String ip = attr[0];
             String date = attr[1];
             String accession = attr[5];
-            String extension = attr[6];
-            String filename = extension;
-            if(extension.charAt(0) == '.'){
-            	filename = accession + extension;
+            String extention = attr[6];
+            String filename = extention;
+            if(extention.charAt(0) == '.'){
+            	filename = accession + extention;
             }
             
             outputkey.set(ip.concat(" ").concat(filename));
             outputvalue.set(date);
             
-            //<key, value> --> <ip, filename>
+            //<key, value> --> <ip filename, date>
             context.write(outputkey, outputvalue);
         }
     }
@@ -72,6 +72,7 @@ public class LogsMR {
 	  		System.exit(1);
 	  	}
 	  	numOfReducerTasks = Integer.parseInt(args[2]);
+		
 	    Configuration conf = new Configuration();
 	    Job job = Job.getInstance(conf, "log mapred " + "input: " + args[0] + ", output: " + args[1] + ", Reduce Tasks: " + args[2]);
 	    job.setJarByClass(LogsMR.class);
