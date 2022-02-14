@@ -1,0 +1,34 @@
+Εντολή εκτέλεσης του κώδικα:
+
+~/spark/bin/spark-submit --master spark://master:7077 kmeans.py <input-file> <k> <initialization-mode> > results.txt
+
+e.g. ~/spark/bin/spark-submit --master spark://master:7077 kmeans.py  meddata2022.csv 6 k-means > results.txt        
+
+Οι παράμετροι είναι : 
+
+1. meddata2022.csv  --> InputFile 
+2.  {0,1,2,...} --> K (Αφορά τον αριθμό των cluster. Αν k=0 τότε υπολογίζει: 
+    1. Το   συνολικό άθροισμα των τετραγώνων των αποστάσεων.        
+    2. Τον συντελεστή περιγράμματος.
+    3. Το μέγεθος των συστάδων
+   
+    Για k=3,6,9,...,30 . Έτσι βρίσκουμε το βέλτιστο.)
+
+3. k-means, random  -->  initialization mode του K-Means (k-means|| ή random)
+
+Τα αποτελέσματα τα κάνει print. Γι'αυτό επιλέγουμε την χρήση της εντολής :
+" > results.txt ", Η οποία αποθηκεύει τα αποτελέσματα αυτά σε κάποιο αρχείο.
+_____________________________________________________________
+
+Για την εκτέλεση με 1 slave:
+
+#Σταματάμε το cluster
+~/spark/sbin/stop-all.sh
+
+
+#Ξεκινάμε τον Master στον master
+~/spark/sbin/start-master.sh
+
+
+#Ξεκινάμε έναν Worker στον master
+~/spark/sbin/start-slave.sh spark://master:7077

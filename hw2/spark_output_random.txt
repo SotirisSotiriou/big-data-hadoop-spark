@@ -1,0 +1,5 @@
+/home/user/spark/python/lib/pyspark.zip/pyspark/context.py:227: DeprecationWarning: Support for Python 2 and Python 3 prior to version 3.6 is deprecated as of Spark 3.0. See also the plan for dropping Python 2 support at https://spark.apache.org/news/plan-for-dropping-python-2-support.html.
+  DeprecationWarning)
+Final Center: [array([42.49929419, 42.50138824, 42.50101421, 42.50087536, 42.5028698 ]), array([102.50089614, 102.50095351, 102.50107461, 102.50127395,
+       102.49942738]), array([82.50162634, 82.50109673, 82.50069655, 82.49930019, 82.49975332]), array([22.50104734, 22.50070943, 22.49792942, 22.50042253, 22.49738671]), array([62.4990907 , 62.50137794, 62.50080397, 62.5013339 , 62.49989812]), array([3.39864314, 3.40080259, 3.40075157, 3.40056351, 3.40094554])]
+SSE: 58094212.261184216
